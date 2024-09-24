@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+  int row,column;
+  printf("Enter the number of rows=");
+  scanf("%d",&row);
+  printf("Enter the number of columns=");
+  scanf("%d",&column);
+  int **a = (int **)malloc(row * sizeof(int *));
+  int **b = (int **)malloc(row * sizeof(int *));
+  int **mul = (int **)malloc(row * sizeof(int *));
+  for (int i = 0; i < row; i++) {
+    a[i] = (int *)malloc(column * sizeof(int));
+    b[i] = (int *)malloc(column * sizeof(int));
+    mul[i] = (int *)malloc(column * sizeof(int));
+    }
+  printf("Enter the first matrix elements=\n");
+  for(int i=0;i<row;i++) {
+    for(int j=0;j<column;j++) {
+      scanf("%d",*(a+i)+j); }}
+  printf("Enter the second matrix elements=\n");
+  for(int i=0;i<row;i++) {
+    for(int j=0;j<column;j++) {
+      scanf("%d",*(b+i)+j); } }
+  printf("Product of the matrices=\n");
+  for(int i=0;i<row;i++) {
+    for(int j=0;j<column;j++) {
+      *(*(mul+i)+j)=0;
+  for(int k=0;k<column;k++) {
+    *(*(mul+i)+j)+=*(*(a+i)+j)**(*(b+i)+j);
+      } 
+    } 
+  }
+  for(int i=0;i<row;i++) {
+    for(int j=0;j<column;j++) {
+      printf("%d\t",*(*(mul+i)+j));
+      }
+    printf("\n");
+    }
